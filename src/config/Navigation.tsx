@@ -1,5 +1,5 @@
 import { type Navigation } from '@toolpad/core/AppProvider';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export const NAVIGATION: Navigation = [
@@ -8,8 +8,8 @@ export const NAVIGATION: Navigation = [
         title: 'Main items',
     },
     {
-        title: 'Dashboard',
-        icon: <DashboardIcon />,
+        title: 'Home',
+        icon: <HomeIcon />,
     },
     {
         segment: 'orders',
