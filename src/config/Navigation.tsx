@@ -1,19 +1,22 @@
-import { type Navigation } from '@toolpad/core/AppProvider';
-import HomeIcon from '@mui/icons-material/Home';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { NavItem } from '../types/common';
+import { Link } from 'react-router-dom';
 
-export const NAVIGATION: Navigation = [
-    {
-        kind: 'header',
-        title: 'Main items',
-    },
+const NAVIGATION: NavItem[] = [
     {
         title: 'Home',
-        icon: <HomeIcon />,
+        icon: <HomeOutlined />,
+        path: '/home',
     },
     {
-        segment: 'orders',
-        title: 'Orders',
-        icon: <ShoppingCartIcon />,
+        title: 'Sales',
+        icon: <ShoppingCartOutlined />,
+        path: '/sales',
     },
 ];
+
+export const menuItems = NAVIGATION.map((navItem) => ({
+    key: navItem.title,
+    icon: navItem.icon,
+    label: <Link to={navItem.path}>{navItem.title}</Link>,
+}));

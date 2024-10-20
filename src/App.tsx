@@ -1,15 +1,8 @@
-import './App.scss';
-import { AppProvider } from '@toolpad/core/AppProvider';
-import { Outlet } from 'react-router-dom';
-import { NAVIGATION } from './config/Navigation';
-import { BRANDING } from './config/Branding';
+import React from 'react';
+import MainLayout from './layout/MainLayout';
 
-function App() {
-    return (
-        <AppProvider navigation={NAVIGATION} branding={BRANDING}>
-            <Outlet />
-        </AppProvider>
-    );
-}
+const App = () => {
+    return <MainLayout />;
+};
 
 export default App;
