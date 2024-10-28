@@ -1,4 +1,4 @@
-import { HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { HomeOutlined, ShoppingCartOutlined, ShoppingOutlined } from '@ant-design/icons';
 import { NavItem } from '../types/common';
 import { Link } from 'react-router-dom';
 
@@ -9,9 +9,14 @@ const NAVIGATION: NavItem[] = [
         path: '/home',
     },
     {
-        title: 'Sales',
+        title: 'Продажи',
         icon: <ShoppingCartOutlined />,
         path: '/sales',
+    },
+    {
+        title: 'Заказы',
+        icon: <ShoppingOutlined />,
+        path: '/orders',
     },
 ];
 

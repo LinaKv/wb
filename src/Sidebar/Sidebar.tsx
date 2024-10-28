@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import { menuItems } from '../config/Navigation';
