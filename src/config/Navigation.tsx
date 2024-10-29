@@ -9,9 +9,9 @@ const NAVIGATION: NavItem[] = [
         path: '/home',
     },
     {
-        title: 'Продажи',
+        title: 'Таблицы',
         icon: <ShoppingCartOutlined />,
-        path: '/sales',
+        path: '/static',
     },
     {
         title: 'Заказы',

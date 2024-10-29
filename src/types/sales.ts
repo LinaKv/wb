@@ -28,3 +28,20 @@ export interface SalesItem {
     gNumber: string;
     srid: string;
 }
+
+export type DataType = {
+    key: number;
+    supplierArticle: string;
+    totalPrice: number;
+    totalPriceSum: number;
+    discountPercent: number;
+    discountPercentSum: number;
+    spp: number;
+    sppSum: number;
+    forPay: number;
+    finishedPrice: number;
+    finishedPriceSum: number;
+    priceWithDisc: number;
+    priceWithDiscSum: number;
+    amount: number;
+};
