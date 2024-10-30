@@ -13,11 +13,6 @@ const NAVIGATION: NavItem[] = [
         icon: <ShoppingCartOutlined />,
         path: '/static',
     },
-    {
-        title: 'Заказы',
-        icon: <ShoppingOutlined />,
-        path: '/orders',
-    },
 ];
 
 export const menuItems = NAVIGATION.map((navItem) => ({

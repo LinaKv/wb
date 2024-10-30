@@ -1,17 +1,19 @@
 import { Table, message } from 'antd';
 import { useState } from 'react';
-import { DataType, SalesItem } from '../../types/sales';
 import TableTitle from '../TableWithData/TableTitle';
-import { handlerResponseSales } from './responseHandler';
-import { salesColumns } from './tableColumns';
 import dayjs from 'dayjs';
+import { DataOrdersType, OrdersType } from '../../types/orders';
 import { DateType } from '../../types/common';
+import { ordersColumns } from './ordersColumns';
+import { handlerResponseOrders } from './responseHandler';
 
 const token = import.meta.env.VITE_API_TOKEN;
 const today = dayjs();
 
-const SalesTable = () => {
-    const [data, setData] = useState<DataType[] | undefined>(undefined);
+type Props = {};
+
+const OrdersTable = (props: Props) => {
+    const [data, setData] = useState<DataOrdersType[] | undefined>(undefined);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [datePeriod, setDatePeriod] = useState<DateType>({ startDate: today.subtract(30, 'day'), endDate: today });
 
@@ -22,7 +24,7 @@ const SalesTable = () => {
         const dateFrom = '2019-06-20T23:59:59';
         try {
             const response = await fetch(
-                `https://statistics-api.wildberries.ru/api/v1/supplier/sales?dateFrom=${encodeURIComponent(dateFrom)}`,
+                `https://statistics-api.wildberries.ru/api/v1/supplier/orders?dateFrom=${encodeURIComponent(dateFrom)}`,
                 {
                     method: 'GET',
                     headers: {
@@ -36,9 +38,9 @@ const SalesTable = () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            const responseData: SalesItem[] = await response.json();
+            const responseData: OrdersType[] = await response.json();
 
-            const newData1 = handlerResponseSales(responseData, datePeriod);
+            const newData1 = handlerResponseOrders(responseData, datePeriod);
 
             setData(newData1);
             console.log('Sales Data:', newData1);
@@ -62,15 +64,15 @@ const SalesTable = () => {
     return (
         <>
             {contextHolder}
-            <Table<DataType>
-                columns={salesColumns}
+            <Table<DataOrdersType>
+                columns={ordersColumns}
                 dataSource={data}
                 loading={isLoading}
                 pagination={{ pageSize: 50 }}
                 scroll={{ y: 100 * 5, x: 'max-content' }}
                 title={() => (
                     <TableTitle
-                        title="Таблица продаж"
+                        title="Таблица заказов"
                         startDate={datePeriod.startDate}
                         endDate={datePeriod.endDate}
                         onUpdate={onUpdateData}
@@ -82,4 +84,4 @@ const SalesTable = () => {
     );
 };
 
-export default SalesTable;
+export default OrdersTable;

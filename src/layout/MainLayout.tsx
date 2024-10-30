@@ -6,10 +6,10 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const MainLayout = () => {
     return (
-        <Layout style={{ height: '100%', width: '100%' }}>
+        <Layout style={{ minHeight: '100vh', width: '100%' }} hasSider>
             <Sidebar />
-            <Layout>
-                <Content>
+            <Layout style={{ marginInlineStart: 200 }}>
+                <Content className="contentContainer">
                     <Outlet />
                 </Content>
             </Layout>
