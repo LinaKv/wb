@@ -10,9 +10,7 @@ import { handlerResponseOrders } from './responseHandler';
 const token = import.meta.env.VITE_API_TOKEN;
 const today = dayjs();
 
-type Props = {};
-
-const OrdersTable = (props: Props) => {
+const OrdersTable = () => {
     const [data, setData] = useState<DataOrdersType[] | undefined>(undefined);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [datePeriod, setDatePeriod] = useState<DateType>({ startDate: today.subtract(30, 'day'), endDate: today });

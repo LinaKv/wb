@@ -1,4 +1,4 @@
-import { HomeOutlined, ShoppingCartOutlined, ShoppingOutlined } from '@ant-design/icons';
+import { HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { NavItem } from '../types/common';
 import { Link } from 'react-router-dom';
 
